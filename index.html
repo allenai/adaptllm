@@ -128,7 +128,7 @@
             <h3 class="title is-4">Methodology</h3>
 
             Braodly, we utilize separate <strong>planner</strong> and  <strong>executor</strong> LLM modules within ADaPT.  The executor performs low-level "atomic" skills specific to the environment by interacting with it iteratively and uses the LLM to self-assess whether the task was successfully completed. On the other hand, the planner breaks down complex tasks into smaller sub-tasks and generates logical operators to combine various sub-tasks to accomplish the task. We incorporate these modules into ADaPT via the <strong>controller</strong> which is a pre-determined and recursive algorithm.
-            <img src="./website/images/adapt_sys.png">
+            <img src="./website/images/main.svg">
             <br>
             <p>
               The figure above shows the control flow of ADaPT.  A complex task such as <em>put a clean mug on the desk</em> is first assigned to the executor. If the executor does not succeed, then ADaPT calls the planner to decompose the task into sub-tasks along with a logical operator (<em>"And"</em> or <em>"OR"</em> ) indicating how to compose them. Each sub-task (or step) is then assigned recursively to ADaPT and is combined using the logical operator. In the end, the success of sub-tasks after recursive decomposition ensures overall task success.
