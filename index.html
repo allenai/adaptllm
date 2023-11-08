@@ -119,9 +119,15 @@
           <!-- <h2 class="title is-3">Abstract</h2> -->
           <div class="content has-text-justified">
             <img src="./website/images/adapt_flow.png" alt="Teaser" width="60%">
+            <p>
+              In the example abouve, the overall task of putting a clean mug on a desk in an unfamiliar household is too complex for the model, leading to failure of the iterative executor. While a plan-and-execute-style approach initially breaks down the task into three sub-tasks, it falls short in accounting for the complexity in finding a mug. Therefore, ADaPT employs its recursive structure to <strong>dynamically adapt</strong> to execution failures (assessed by LLMs), by <strong>further decomposing the complex sub-task</strong> of finding a mug via the planner.
+            </p>
 
             <h3 class="title is-4">Methedology</h3>
             <img src="./website/images/adapt_sys.png">
+            <p>
+              The figure above shows the control flow of ADaPT.  A complex task such as <em>put a clean mug on the desk</em> is first assigned to the executor. If the executor does not succeed, then ADaPT calls the planner to decompose the task into sub-tasks along with a logical operator (<em>"And"</em> or <em>"OR"</em>) indicating how to compose them. Each sub-task (or 'step') is then assigned recursively to ADaPT and is combined using the logical operator. In the end, the success of sub-tasks after recursive decomposition ensures overall task success.
+            </p>
             <!-- <p>
             In CLIN, a <strong>controller</strong> takes the current task, retrievals from <strong>memory</strong>, and the trial so far, to generate the next goal to achieve. The <strong>executor</strong> then converts this to a valid action to perform towards that goal. The simulator then performs the action and returns an observation of that action's effect. Memory is updated at the end of each trial by the <strong>memory generator</strong>.
             </p>
