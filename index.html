@@ -45,7 +45,7 @@
               <a href="https://allenai.org/team/peterc">Peter Clark</a><sup>2</sup>,
               <a href="https://allenai.org/team/ashishs">Ashish Sabharwal</a><sup>2</sup>,
               <a href="https://www.cs.unc.edu/~mbansal/">Mohit Bansal</a><sup>1</sup>,
-              <a href="https://allenai.org/team/tushark">Tushar Khot</a><sup>2</sup>,
+              <a href="https://allenai.org/team/tushark">Tushar Khot</a><sup>2</sup>
             </span>
             
           </div>
@@ -125,7 +125,7 @@
               In the example above, the overall task of putting a clean mug on a desk in an unfamiliar household is too complex for the model, leading to failure of the iterative executor. While a plan-and-execute-style approach initially breaks down the task into three sub-tasks, it falls short in accounting for the complexity in finding a mug. Therefore, ADaPT employs its recursive structure to <strong>dynamically adapt</strong> to execution failures (assessed by LLMs), by <strong>further decomposing the complex sub-task</strong> of finding a mug via the planner.
             </p>
 
-            <h3 class="title is-4">Methedology</h3>
+            <h3 class="title is-4">Methodology</h3>
 
             Braodly, we utilize separate <strong>planner</strong> and  <strong>executor</strong> LLM modules within ADaPT.  The executor performs low-level "atomic" skills specific to the environment by interacting with it iteratively and uses the LLM to self-assess whether the task was successfully completed. On the other hand, the planner breaks down complex tasks into smaller sub-tasks and generates logical operators to combine various sub-tasks to accomplish the task. We incorporate these modules into ADaPT via the <strong>controller</strong> which is a pre-determined and recursive algorithm.
             <img src="./website/images/adapt_sys.png">
