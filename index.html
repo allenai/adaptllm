@@ -119,7 +119,7 @@
           <!-- <h2 class="title is-3">Abstract</h2> -->
           <div class="content has-text-justified">
             <img src="./website/images/adapt_flow.png" alt="Teaser" width="60%">
-
+            <br>
             <p>
               In the example above, the overall task of putting a clean mug on a desk in an unfamiliar household is too complex for the model, leading to failure of the iterative executor. While a plan-and-execute-style approach initially breaks down the task into three sub-tasks, it falls short in accounting for the complexity in finding a mug. Therefore, ADaPT employs its recursive structure to <strong>dynamically adapt</strong> to execution failures (assessed by LLMs), by <strong>further decomposing the complex sub-task</strong> of finding a mug via the planner.
             </p>
@@ -128,17 +128,18 @@
 
             Braodly, we utilize separate <strong>planner</strong> and  <strong>executor</strong> LLM modules within ADaPT.  The executor performs low-level "atomic" skills specific to the environment by interacting with it iteratively and uses the LLM to self-assess whether it successfully completed the task. On the other hand, the planner is tasked with breaking down complex tasks into smaller sub-tasks and  to generate logical operators to combine various sub-tasks in the plan to accomplish the task. We incorporate these modules into ADaPT via the <strong>controller</strong> which is a pre-determined and recursive algorithm.
             <img src="./website/images/adapt_sys.png">
-
+            <br>
             <p>
               The figure above shows the control flow of ADaPT.  A complex task such as <em>put a clean mug on the desk</em> is first assigned to the executor. If the executor does not succeed, then ADaPT calls the planner to decompose the task into sub-tasks along with a logical operator (<em>"And"</em> or <em>"OR"</em> ) indicating how to compose them. Each sub-task (or step) is then assigned recursively to ADaPT and is combined using the logical operator. In the end, the success of sub-tasks after recursive decomposition ensures overall task success.
             </p>
 
             <h3 class="title is-4">ADaPT yields the highest overall success rates</h3>
             <img src="./website/images/adapt_tab1.png">
+            <br>
             <p>
               On three interactive decision-making tasks: ALFWorld, WebShop, and TextCraft, ADAPT improves performance of GPT-3.5 over previous approaches such as ReAct, Plan-and-Execute by up to 28.3%, 27%, and 33% (absolute) points respectively. Compared to Reflexion, an adaptive approach that addresses failures in the full task trajectory, ADaPT yields higher success rates by 14.1% and 9% (absolute) points on ALFWorld and WebShop, respectively.
             </p>
-            <img src="./website/images/adapt_tab2.png">
+            <img src="./website/images/adapt_tab2.png" alt="TextCraft" width="60%">
             <!-- <p>
             In CLIN, a <strong>controller</strong> takes the current task, retrievals from <strong>memory</strong>, and the trial so far, to generate the next goal to achieve. The <strong>executor</strong> then converts this to a valid action to perform towards that goal. The simulator then performs the action and returns an observation of that action's effect. Memory is updated at the end of each trial by the <strong>memory generator</strong>.
             </p>
