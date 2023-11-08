@@ -127,7 +127,7 @@
 
             <h3 class="title is-4">Methedology</h3>
 
-            Braodly, we utilize separate <strong>planner</strong> and  <strong>executor</strong> LLM modules within ADaPT.  The executor performs low-level "atomic" skills specific to the environment by interacting with it iteratively and uses the LLM to self-assess whether it successfully completed the task. On the other hand, the planner is tasked with breaking down complex tasks into smaller sub-tasks and  to generate logical operators to combine various sub-tasks in the plan to accomplish the task. We incorporate these modules into ADaPT via the <strong>controller</strong> which is a pre-determined and recursive algorithm.
+            Braodly, we utilize separate <strong>planner</strong> and  <strong>executor</strong> LLM modules within ADaPT.  The executor performs low-level "atomic" skills specific to the environment by interacting with it iteratively and uses the LLM to self-assess whether the task was successfully completed. On the other hand, the planner breaks down complex tasks into smaller sub-tasks and generates logical operators to combine various sub-tasks to accomplish the task. We incorporate these modules into ADaPT via the <strong>controller</strong> which is a pre-determined and recursive algorithm.
             <img src="./website/images/adapt_sys.png">
             <br>
             <p>
