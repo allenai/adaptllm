@@ -60,7 +60,7 @@
                 <a href="./files/ADaPT_final.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+                      <i class="ai ai-arxiv"></i>
                   </span>
                   <span>Paper</span>
                 </a>
@@ -82,7 +82,7 @@
                   <span class="icon">
                       <i class="fas fa-globe"></i>
                   </span>
-                  <span>Data</span>
+                  <span>Environments</span>
                   </a>
               </span>
             </div>
@@ -126,7 +126,7 @@
             <img src="./website/images/main.svg">
           <br>
             <p>
-              The figure above shows the control flow of ADaPT.  A complex task such as <em>put a clean mug on the desk</em> is first assigned to the executor. If the executor does not succeed, then ADaPT calls the planner to decompose the task into sub-tasks along with a logical operator (<em>"And"</em> or <em>"OR"</em> ) indicating how to compose them. Each sub-task (or step) is then assigned recursively to ADaPT and is combined using the logical operator. In the end, the success of sub-tasks after recursive decomposition ensures overall task success.
+              The figure above shows the control flow of ADaPT.  A complex task such as <em>put a clean mug on the desk</em> is first assigned to the executor. If the executor does not succeed, then ADaPT calls the planner to decompose the task into sub-tasks along with a logical operator (<em>"And"</em> or <em>"Or"</em> ) indicating how to compose them. Each sub-task (or step) is then assigned recursively to ADaPT and is combined using the logical operator. In the end, the success of sub-tasks after recursive decomposition ensures overall task success.
             </p>
 
             <h3 class="title is-4">ADaPT yields the highest overall success rates</h3>
@@ -136,6 +136,19 @@
               On three interactive decision-making tasks: ALFWorld (shown above on left), WebShop (shown above on right), and TextCraft (below), ADaPT improves the performance of GPT-3.5 over previous approaches such as ReAct, Plan-and-Execute by up to 28.3%, 27%, and 33% (absolute) points respectively. Compared to Reflexion, an adaptive approach that addresses failures in the full task trajectory, ADaPT yields higher success rates by 14.1% and 9% (absolute) points on ALFWorld and WebShop, respectively.
             </p>
             <img src="./website/images/adapt_tab2.png" alt="TextCraft" width="40%">
+            <h3 class="title is-4">ADaPT dynamically accomodates executor capabilities</h3>
+            <!-- <img src="./website/images/AI2_dscale.png" alt="scale" width="60%">
+            <br>
+            <p>
+              Across all three datasets, on dev sets we find that performance of ADaPT increases with increasing maximum depth budget (dmax).
+            </p> -->
+            <img src="./website/images/exec_capabilities.svg" alt="executor capabilities">
+            <br>
+            <p>Using the ALFWorld dataset, we demonstrate that ADaPT dynamically adjusts to account for executor capabilities. On the left, we illustrate how the same planner module improves the performance of two different executor LLMs. On the right, we show that, even for the same underlying LLM, ADaPT enhances performance across different prompt settings, ranging from specialized task-specific executors that observe relevant gold trajectories to atomic executors capable only of performing atomic skills in the environment.</p>
+            <h3 class="title is-4">ADaPT dynamically accomodates task complexity</h3>
+            <img src="./website/images/task_complexity.svg" alt="task complexity">
+            <br>
+            <p>Lastly, ADaPT can accomodate to task complexity in WebShop as we increase the number of displayed products on the search page. On TextCraft dataset, we observe that the decomposition depth employed by ADaPT aligns with the inherent recipe depth (or complexity) of the underlying task.</p>
             <!-- <p>
             In CLIN, a <strong>controller</strong> takes the current task, retrievals from <strong>memory</strong>, and the trial so far, to generate the next goal to achieve. The <strong>executor</strong> then converts this to a valid action to perform towards that goal. The simulator then performs the action and returns an observation of that action's effect. Memory is updated at the end of each trial by the <strong>memory generator</strong>.
             </p>
